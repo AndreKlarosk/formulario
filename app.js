@@ -64,27 +64,52 @@ function imprimirFicha() {
 
 // Abrir histórico
 function abrirHistorico() {
-  const nomeBusca = prompt("Digite parte do nome para buscar no histórico:");
+  const nomeBusca = prompt("Digite parte do nome para buscar:");
   if (!nomeBusca) return;
 
   const tx = db.transaction(["fichas"], "readonly");
   const store = tx.objectStore("fichas");
 
-  const request = store.getAll();
-  request.onsuccess = () => {
-    const resultados = request.result.filter(ficha =>
-      ficha.nome.toLowerCase().includes(nomeBusca.toLowerCase())
-    );
+  store.getAll().onsuccess = function (e) {
+    const todas = e.target.result;
+    const filtradas = todas.filter(f => f.nome.toLowerCase().includes(nomeBusca.toLowerCase()));
 
-    if (resultados.length === 0) {
-      alert("Nenhuma ficha encontrada com esse nome.");
-    } else {
-      let texto = "Resultados encontrados:\n\n";
-      resultados.forEach(ficha => {
-        texto += `ID: ${ficha.id}\nNome: ${ficha.nome}\nIdade: ${ficha.idade}\nEstado Civil: ${ficha.estadoCivil}\n---\n`;
-      });
-      alert(texto);
+    if (filtradas.length === 0) {
+      alert("Nenhuma ficha encontrada.");
+      return;
     }
+
+    let menu = "Fichas encontradas:\n\n";
+    filtradas.forEach((ficha, i) => {
+      menu += `${i + 1}. ID: ${ficha.id}, Nome: ${ficha.nome}, Idade: ${ficha.idade}\n`;
+    });
+
+    const escolha = prompt(menu + "\nDigite o número da ficha para imprimir:");
+    const index = parseInt(escolha) - 1;
+
+    if (!filtradas[index]) {
+      alert("Opção inválida.");
+      return;
+    }
+
+    preencherFichaParaImpressao(filtradas[index]);
+    setTimeout(() => imprimirFicha(), 300);
   };
+}
+
+function preencherFichaParaImpressao(data) {
+  document.getElementById("pNome").innerText = data.nome;
+  document.getElementById("pIdade").innerText = data.idade;
+  document.getElementById("pEstadoCivil").innerText = data.estadoCivil;
+  document.getElementById("pTempoBatizado").innerText = data.tempoBatizado;
+  document.getElementById("pInvalidez").innerText = data.invalidez;
+  document.getElementById("pComum").innerText = data.comum;
+  document.getElementById("pCargoAtual").innerText = data.cargoAtual;
+  document.getElementById("pConjugeCargo").innerText = data.conjugeCargo;
+  document.getElementById("pAnciao").innerText = data.anciao;
+  document.getElementById("pDiacono").innerText = data.diacono;
+  document.getElementById("pCooperador").innerText = data.cooperador;
+  document.getElementById("pAdministracao").innerText = data.administracao;
+  document.getElementById("pDataConsideracao").innerText = data.dataConsideracao;
 }
 
