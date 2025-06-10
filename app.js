@@ -1,6 +1,8 @@
 // IndexedDB Setup
+
 let db;
 const request = indexedDB.open("fichasCCB", 1);
+let fichaEditando = null; // Armazena o ID da ficha sendo editada
 
 request.onupgradeneeded = function (e) {
   db = e.target.result;
