@@ -39,25 +39,27 @@ function imprimirFicha() {
 
 // Abrir histórico
 function abrirHistorico() {
-  const nomeBusca = prompt("Digite o nome para buscar no histórico:");
+  const nomeBusca = prompt("Digite parte do nome para buscar no histórico:");
   if (!nomeBusca) return;
 
   const tx = db.transaction(["fichas"], "readonly");
   const store = tx.objectStore("fichas");
-  const index = store.index("nome");
 
-  const request = index.getAll(IDBKeyRange.only(nomeBusca));
+  const request = store.getAll();
+  request.onsuccess = () => {
+    const resultados = request.result.filter(ficha =>
+      ficha.nome.toLowerCase().includes(nomeBusca.toLowerCase())
+    );
 
-  request.onsuccess = function () {
-    const resultados = request.result;
     if (resultados.length === 0) {
       alert("Nenhuma ficha encontrada com esse nome.");
     } else {
       let texto = "Resultados encontrados:\n\n";
-      resultados.forEach((ficha, i) => {
+      resultados.forEach(ficha => {
         texto += `ID: ${ficha.id}\nNome: ${ficha.nome}\nIdade: ${ficha.idade}\nEstado Civil: ${ficha.estadoCivil}\n---\n`;
       });
       alert(texto);
     }
   };
 }
+
