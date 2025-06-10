@@ -2,102 +2,65 @@ body {
   font-family: Arial, sans-serif;
   background: #f9f9f9;
   margin: 0;
-  padding: 0;
+  padding: 2rem;
 }
 
 .container {
   max-width: 800px;
-  margin: 2rem auto;
-  background: white;
+  margin: auto;
+  background: #fff;
   padding: 2rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-form label {
+input, select, button {
   display: block;
   margin-bottom: 1rem;
-}
-
-input, select {
   width: 100%;
   padding: 0.5rem;
-  margin-top: 0.25rem;
-  box-sizing: border-box;
-}
-
-fieldset {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-
-legend {
-  font-weight: bold;
-}
-
-.actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1.5rem;
 }
 
 button {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  background-color: #2e7d32;
+  background: #2e7d32;
   color: white;
   font-weight: bold;
-  cursor: pointer;
+  border: none;
   border-radius: 5px;
-  transition: background 0.3s;
+  cursor: pointer;
 }
 
-button:hover {
-  background-color: #1b5e20;
+#printArea {
+  display: none;
 }
+
+.print-ficha {
+  font-family: "Times New Roman", serif;
+  font-size: 12pt;
+  padding: 2cm;
+  line-height: 1.6;
+  color: black;
+  width: 21cm;
+  min-height: 29.7cm;
+}
+
+.print-ficha .linha {
+  border-bottom: 1px solid black;
+  display: inline-block;
+  min-width: 200px;
+}
+
 @media print {
   body {
-    background: white;
-    font-size: 12pt;
-    padding: 2cm;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container, #historico {
+    display: none !important;
   }
 
   #printArea {
     display: block !important;
-  }
-
-  form, .actions, .container h1 {
-    display: none !important;
-  }
-}
-@media print {
-  body {
-    background: white;
-    padding: 2cm;
-  }
-
-  #printArea {
-    display: block !important;
-  }
-
-  form, .actions, .container h1, .container {
-    display: none !important;
-  }
-
-  table td {
-    border: 1px solid #000;
-    padding: 5px;
-    vertical-align: top;
-  }
-
-  h2 {
-    margin-top: 0;
   }
 }
