@@ -34,8 +34,33 @@ form.addEventListener("submit", function (event) {
 
 // Imprimir ficha
 function imprimirFicha() {
+  const data = Object.fromEntries(new FormData(form));
+
+  // Preenche área de impressão
+  document.getElementById("pNome").innerText = data.nome;
+  document.getElementById("pIdade").innerText = data.idade;
+  document.getElementById("pEstadoCivil").innerText = data.estadoCivil;
+  document.getElementById("pTempoBatizado").innerText = data.tempoBatizado;
+  document.getElementById("pInvalidez").innerText = data.invalidez;
+  document.getElementById("pComum").innerText = data.comum;
+  document.getElementById("pCargoAtual").innerText = data.cargoAtual;
+  document.getElementById("pConjugeCargo").innerText = data.conjugeCargo;
+  document.getElementById("pAnciao").innerText = data.anciao;
+  document.getElementById("pDiacono").innerText = data.diacono;
+  document.getElementById("pCooperador").innerText = data.cooperador;
+  document.getElementById("pAdministracao").innerText = data.administracao;
+  document.getElementById("pDataConsideracao").innerText = data.dataConsideracao;
+
+  // Exibe somente a área de impressão
+  const printContents = document.getElementById("printArea").innerHTML;
+  const originalContents = document.body.innerHTML;
+
+  document.body.innerHTML = printContents;
   window.print();
+  document.body.innerHTML = originalContents;
+  location.reload(); // recarrega o app após impressão
 }
+
 
 // Abrir histórico
 function abrirHistorico() {
