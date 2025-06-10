@@ -132,3 +132,20 @@ function carregarURL() {
   gerarImpressao(ficha);
   setTimeout(() => window.print(), 300);
 }
+function editarFicha(id) {
+  const tx = db.transaction("fichas", "readonly");
+  const store = tx.objectStore("fichas");
+  store.get(id).onsuccess = function (e) {
+    const ficha = e.target.result;
+    fichaEditando = id;
+
+    const form = document.getElementById("fichaForm");
+    for (const [key, value] of Object.entries(ficha)) {
+      if (form.elements[key]) {
+        form.elements[key].value = value;
+      }
+    }
+
+    alert("Ficha carregada para edição. Após alterar, clique em 'Salvar Ficha'.");
+  };
+}
