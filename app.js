@@ -57,8 +57,12 @@ function abrirHistorico() {
         <td>${ficha.nome}</td>
         <td>${ficha.idade}</td>
         <td>
+          <td>
           <button onclick="imprimirFicha(${ficha.id})">🖨️ Imprimir</button>
+          <button onclick="editarFicha(${ficha.id})">✏️ Editar</button>
           <button onclick="excluirFicha(${ficha.id})">🗑️ Excluir</button>
+          </td>
+
         </td>
       `;
       table.appendChild(linha);
