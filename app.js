@@ -95,7 +95,7 @@ function gerarImpressao(ficha) {
       <h2 style="text-align:center;">CONGREGAÇÃO CRISTÃ NO BRASIL</h2>
       <h3 style="text-align:center;">FICHA DE APRESENTAÇÃO PARA CARGO NA IGREJA</h3>
 
-      <p><strong>Apresentado para:</strong> ____________________________</p>
+      <p><strong>Apresentado(a) para:</strong> <span class="linha-dinamica">${ficha.apresenta}</span></p>
       <p><strong>Nome Completo:</strong> <span class="linha-dinamica">${ficha.nome}</span></p>
       <p><strong>Idade:</strong> <span class="linha-auto">${ficha.idade}</span> anos</p>
       <p><strong>Estado Civil:</strong> <span class="linha-auto">${ficha.estadoCivil}</span></p>
