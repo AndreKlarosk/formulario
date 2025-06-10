@@ -62,3 +62,18 @@ button {
 button:hover {
   background-color: #1b5e20;
 }
+@media print {
+  body {
+    background: white;
+    font-size: 12pt;
+    padding: 2cm;
+  }
+
+  #printArea {
+    display: block !important;
+  }
+
+  form, .actions, .container h1 {
+    display: none !important;
+  }
+}
