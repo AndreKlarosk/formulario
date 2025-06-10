@@ -5,83 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ficha de Apresentação - CCB</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
 </head>
-  
 <body>
   <div class="container">
-    <h1>Ficha de Apresentação para Cargo na CCB</h1>
-
+    <h1>Ficha Digital CCB</h1>
     <form id="fichaForm">
-      <label>Nome Completo: <input type="text" name="nome" required></label>
-      <label>Idade: <input type="number" name="idade" required></label>
-      <label>Estado Civil:
-        <select name="estadoCivil">
-          <option value="Solteiro">Solteiro</option>
-          <option value="Casado">Casado</option>
-          <option value="Divorciado">Divorciado</option>
-          <option value="Viúvo">Viúvo</option>
-        </select>
-      </label>
-      <label>Tempo de Batizado (anos): <input type="number" name="tempoBatizado" required></label>
-      <label>Aposentado por invalidez:
-        <select name="invalidez">
-          <option value="Não">Não</option>
-          <option value="Sim">Sim</option>
-        </select>
-      </label>
-      <label>Comum Congregação: <input type="text" name="comum" required></label>
-      <label>Cargo atual: <input type="text" name="cargoAtual"></label>
-      <label>Cônjuge exerce cargo?
-        <select name="conjugeCargo">
-          <option value="Não">Não</option>
-          <option value="Sim">Sim</option>
-        </select>
-      </label>
+      <!-- Campos simplificados, o detalhamento será no visual da impressão -->
+      <input type="text" name="nome" placeholder="Nome Completo" required />
+      <input type="number" name="idade" placeholder="Idade" required />
+      <input type="text" name="estadoCivil" placeholder="Estado Civil" required />
+      <input type="number" name="tempoBatizado" placeholder="Tempo de Batizado" required />
+      <select name="invalidez">
+        <option value="">Aposentado por invalidez?</option>
+        <option value="Sim">Sim</option>
+        <option value="Não">Não</option>
+      </select>
+      <input type="text" name="comum" placeholder="Comum Congregação" required />
+      <input type="text" name="cargoAtual" placeholder="Cargo Atual" />
+      <select name="conjugeCargo">
+        <option value="">Cônjuge exerce cargo?</option>
+        <option value="Sim">Sim</option>
+        <option value="Não">Não</option>
+      </select>
+      <input type="text" name="anciao" placeholder="Ancião" />
+      <input type="text" name="diacono" placeholder="Diácono" />
+      <input type="text" name="cooperador" placeholder="Cooperador" />
+      <input type="text" name="administracao" placeholder="Administração" />
+      <input type="date" name="dataConsideracao" placeholder="Data da Consideração" />
 
-      <fieldset>
-        <legend>Apresentado por:</legend>
-        <label>Ancião: <input type="text" name="anciao"></label>
-        <label>Diácono: <input type="text" name="diacono"></label>
-        <label>Cooperador: <input type="text" name="cooperador"></label>
-      </fieldset>
-
-      <label>Administração: <input type="text" name="administracao"></label>
-      <label>Considerado na Data: <input type="date" name="dataConsideracao"></label>
-
-      <div class="actions">
-        <button type="submit">Salvar</button>
-        <button type="button" onclick="imprimirFicha()">Imprimir</button>
-        <button type="button" onclick="abrirHistorico()">Histórico</button>
-      </div>
+      <button type="submit">Salvar Ficha</button>
     </form>
+
+    <button onclick="abrirHistorico()">📁 Ver Histórico</button>
+    <div id="historico"></div>
   </div>
 
+  <!-- Área de Impressão -->
+  <div id="printArea" class="print-area"></div>
+
   <script src="app.js"></script>
-  <div id="printArea" class="print-ficha">
-  <h2 class="titulo">CONGREGAÇÃO CRISTÃ NO BRASIL</h2>
-  <h3 class="subtitulo">FICHA DE APRESENTAÇÃO PARA CARGO NA IGREJA</h3>
-
-  <p><strong>Apresentado para:</strong> ______________________________________</p>
-  <p><strong>Nome Completo:</strong> <span id="pNome"></span></p>
-  <p><strong>Idade:</strong> <span id="pIdade"></span> anos</p>
-  <p><strong>Estado Civil:</strong> <span id="pEstadoCivil"></span></p>
-  <p><strong>Tempo de Batizado:</strong> <span id="pTempoBatizado"></span> anos</p>
-  <p><strong>É aposentado por invalidez:</strong> <span id="pInvalidez"></span></p>
-  <p><strong>Comum Congregação:</strong> <span id="pComum"></span></p>
-  <p><strong>Cargo que já exerce na Congregação:</strong> <span id="pCargoAtual"></span></p>
-  <p><strong>Cônjuge exerce algum cargo na Congregação?:</strong> <span id="pConjugeCargo"></span></p>
-
-  <p><strong>Apresentado por:</strong></p>
-  <p>Ancião: <span id="pAnciao"></span></p>
-  <p>Diácono: <span id="pDiacono"></span></p>
-  <p>Cooperador: <span id="pCooperador"></span></p>
-
-  <p><strong>Administração:</strong> <span id="pAdministracao"></span></p>
-  <p><strong>Considerado na Data:</strong> <span id="pDataConsideracao"></span></p>
-</div>
-
-
-
 </body>
 </html>
