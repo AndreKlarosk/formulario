@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+t<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -11,10 +11,21 @@
     <h1>Ficha Digital CCB</h1>
     <form id="fichaForm">
       <!-- Campos simplificados, o detalhamento será no visual da impressão -->
-      <input type="text" name="apresenta" placeholder="Apresentado(A) para" required />
+      <select name="apresenta">
+        <option value="">Apresentado(A) para</option>
+        <option value="Auxiliar da ADM">Auxiliar da ADM</option>
+        <option value="Porteiro(a)">Porteiro(a)</option>
+        <option value="Colaborador(a)">Colaborador(a)</option>
+        <option value="Aprendiz da Música">Aprendiz da Música</option>
+        <option value="Loja da PIA">Loja da PIA</option>
       <input type="text" name="nome" placeholder="Nome Completo" required />
       <input type="number" name="idade" placeholder="Idade" required />
-      <input type="text" name="estadoCivil" placeholder="Estado Civil" required />
+      <select name="estadoCivil">
+        <option value="">Estado Civil</option>
+        <option value="Casado(a)">Casado(a)</option>
+        <option value="Solteiro(a)">Solteiro(a)</option>
+        <option value="Divorciado(a)">Divorciado(a)</option>
+        <option value="Viuvo(a)">Viuvo(a)</option>
       <input type="number" name="tempoBatizado" placeholder="Tempo de Batizado" required />
       <select name="invalidez">
         <option value="">Aposentado por invalidez?</option>
