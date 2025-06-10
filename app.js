@@ -62,7 +62,7 @@ function abrirHistorico() {
     table.border = 1;
     table.style.width = "100%";
     table.innerHTML = `
-      <tr><th>ID</th><th>Nome</th><th>Idade</th><th>Ações</th></tr>
+      <tr><th>ID</th><th>Nome</th><th>Idade</th></tr>
     `;
 
     dados.forEach(ficha => {
