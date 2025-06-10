@@ -162,3 +162,4 @@ function editarFicha(id) {
     alert("Ficha carregada para edição. Após alterar, clique em 'Salvar Ficha'.");
   };
 }
+window.editarFicha = editarFicha;
