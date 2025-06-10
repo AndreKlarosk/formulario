@@ -96,20 +96,20 @@ function gerarImpressao(ficha) {
       <h3 style="text-align:center;">FICHA DE APRESENTAÇÃO PARA CARGO NA IGREJA</h3>
 
       <p><strong>Apresentado para:</strong> ____________________________</p>
-      <p><strong>Nome Completo:</strong> <span class="linha">${ficha.nome}</span></p>
-      <p><strong>Idade:</strong> <span class="linha">${ficha.idade}</span> anos</p>
-      <p><strong>Estado Civil:</strong> <span class="linha">${ficha.estadoCivil}</span></p>
-      <p><strong>Tempo de Batizado:</strong> <span class="linha">${ficha.tempoBatizado}</span> anos</p>
-      <p><strong>Aposentado por Invalidez:</strong> <span class="linha">${ficha.invalidez}</span></p>
-      <p><strong>Comum Congregação:</strong> <span class="linha">${ficha.comum}</span></p>
-      <p><strong>Cargo Atual:</strong> <span class="linha">${ficha.cargoAtual}</span></p>
-      <p><strong>Cônjuge exerce cargo:</strong> <span class="linha">${ficha.conjugeCargo}</span></p>
+      <p><strong>Nome Completo:</strong> <span class="linha-dinamica">${ficha.nome}</span></p>
+      <p><strong>Idade:</strong> <span class="linha-auto">${ficha.idade}</span> anos</p>
+      <p><strong>Estado Civil:</strong> <span class="linha-auto">${ficha.estadoCivil}</span></p>
+      <p><strong>Tempo de Batizado:</strong> <span class="linha-auto">${ficha.tempoBatizado}</span> anos</p>
+      <p><strong>Aposentado por Invalidez:</strong> <span class="linha-auto">${ficha.invalidez}</span></p>
+      <p><strong>Comum Congregação:</strong> <span class="linha-auto">${ficha.comum}</span></p>
+      <p><strong>Cargo Atual:</strong> <span class="linha-auto">${ficha.cargoAtual}</span></p>
+      <p><strong>Cônjuge exerce cargo:</strong> <span class="linha-auto">${ficha.conjugeCargo}</span></p>
       <p><strong>Apresentado por:</strong></p>
-      <p>Ancião: <span class="linha">${ficha.anciao}</span></p>
-      <p>Diácono: <span class="linha">${ficha.diacono}</span></p>
-      <p>Cooperador: <span class="linha">${ficha.cooperador}</span></p>
-      <p><strong>Administração:</strong> <span class="linha">${ficha.administracao}</span></p>
-      <p><strong>Considerado na Data:</strong> <span class="linha">${ficha.dataConsideracao}</span></p>
+      <p>Ancião: <span class="linha-auto">${ficha.anciao}</span></p>
+      <p>Diácono: <span class="linha-auto">${ficha.diacono}</span></p>
+      <p>Cooperador: <span class="linha-auto">${ficha.cooperador}</span></p>
+      <p><strong>Administração:</strong> <span class="linha-auto">${ficha.administracao}</span></p>
+      <p><strong>Considerado na Data:</strong> <span class="linha-auto">${ficha.dataConsideracao}</span></p>
     </div>
   `;
 }
