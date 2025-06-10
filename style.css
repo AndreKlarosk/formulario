@@ -18,8 +18,11 @@ input, select, button {
   display: block;
   margin-bottom: 1rem;
   width: 100%;
+  max-width: 600px;
   padding: 0.5rem;
+  box-sizing: border-box;
 }
+
 
 button {
   background: #2e7d32;
@@ -63,4 +66,14 @@ button {
   #printArea {
     display: block !important;
   }
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input,
+form select {
+  max-width: 600px;
 }
