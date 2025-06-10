@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ficha de Apresentação - CCB</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <div class="container">
+    <h1>Ficha de Apresentação para Cargo na CCB</h1>
+
+    <form id="fichaForm">
+      <label>Nome Completo: <input type="text" name="nome" required></label>
+      <label>Idade: <input type="number" name="idade" required></label>
+      <label>Estado Civil:
+        <select name="estadoCivil">
+          <option value="Solteiro">Solteiro</option>
+          <option value="Casado">Casado</option>
+          <option value="Divorciado">Divorciado</option>
+          <option value="Viúvo">Viúvo</option>
+        </select>
+      </label>
+      <label>Tempo de Batizado (anos): <input type="number" name="tempoBatizado" required></label>
+      <label>Aposentado por invalidez:
+        <select name="invalidez">
+          <option value="Não">Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+      </label>
+      <label>Comum Congregação: <input type="text" name="comum" required></label>
+      <label>Cargo atual: <input type="text" name="cargoAtual"></label>
+      <label>Cônjuge exerce cargo?
+        <select name="conjugeCargo">
+          <option value="Não">Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+      </label>
+
+      <fieldset>
+        <legend>Apresentado por:</legend>
+        <label>Ancião: <input type="text" name="anciao"></label>
+        <label>Diácono: <input type="text" name="diacono"></label>
+        <label>Cooperador: <input type="text" name="cooperador"></label>
+      </fieldset>
+
+      <label>Administração: <input type="text" name="administracao"></label>
+      <label>Considerado na Data: <input type="date" name="dataConsideracao"></label>
+
+      <div class="actions">
+        <button type="submit">Salvar</button>
+        <button type="button" onclick="imprimirFicha()">Imprimir</button>
+        <button type="button" onclick="abrirHistorico()">Histórico</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
