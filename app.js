@@ -23,11 +23,24 @@ request.onerror = function (e) {
 document.getElementById("fichaForm").addEventListener("submit", function (e) {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(e.target));
+
   const tx = db.transaction("fichas", "readwrite");
-  tx.objectStore("fichas").add(data);
-  alert("Ficha salva com sucesso!");
+  const store = tx.objectStore("fichas");
+
+  if (fichaEditando !== null) {
+    data.id = fichaEditando; // mantém o mesmo ID
+    store.put(data);
+    alert("Ficha atualizada com sucesso!");
+    fichaEditando = null;
+  } else {
+    store.add(data);
+    alert("Ficha salva com sucesso!");
+  }
+
   e.target.reset();
+  abrirHistorico();
 });
+
 
 // Histórico Visual
 function abrirHistorico() {
